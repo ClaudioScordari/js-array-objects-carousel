@@ -38,14 +38,24 @@ myImg = document.querySelector('img');
 // Box dell'img
 const boxImg = document.querySelector('.box-img');
 
+// Img al caricamento della pagina + descrizione
+boxImg.innerHTML += `
+    <div class="text">
+        <h1> 
+            ${images[activeIndex]['title']}      
+        </h1>
+        <div> 
+            ${images[activeIndex]['description']}      
+        </div>
+    </div>
+    <img class="img-fluid" src="${images[activeIndex]['url']}" alt="">
+`;
+
 // Seleziono i bottoni
 const goOn = document.querySelector('.go-on');
 const goBack = document.querySelector('.go-back');
 
-// Img al caricamento della pagina
-myImg.src = images[activeIndex]['url'];
-
-// Funzione del bottone Avanti
+// Avanti
 goOn.addEventListener('click', function () {
 
     if (activeIndex < images.length - 1) {
@@ -54,9 +64,20 @@ goOn.addEventListener('click', function () {
         activeIndex = 0;
     }
 
-    myImg.src = images[activeIndex]['url'];
+    boxImg.innerHTML = `
+         <div class="text">
+             <h1> 
+                 ${images[activeIndex]['title']}      
+            </h1>
+            <div> 
+                ${images[activeIndex]['description']}      
+            </div>
+        </div>
+        <img class="img-fluid" src="${images[activeIndex]['url']}" alt="">
+    `;
 });
 
+// Indietro
 goBack.addEventListener('click', function () {
 
     if (activeIndex > 0) {
@@ -65,7 +86,17 @@ goBack.addEventListener('click', function () {
         activeIndex = images.length - 1;
     }
 
-    myImg.src = images[activeIndex]['url'];
+    boxImg.innerHTML = `
+        <div class="text">
+            <h1> 
+                ${images[activeIndex]['title']}      
+            </h1>
+            <div> 
+                ${images[activeIndex]['description']}      
+            </div>
+        </div>
+        <img class="img-fluid" src="${images[activeIndex]['url']}" alt="">
+    `;
 });
 
 

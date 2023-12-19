@@ -2,9 +2,16 @@
     max-width: 1000px;
     height: 100vh;
     margin: 0 auto;
+    padding-top: 100px;
 }
 
 .box-img {
     position: relative;
-    top: 10%;
+}
+
+.text {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: white;
 }
